@@ -1,4 +1,4 @@
-# Project Euler: Problem 2
+# Project Euler: Problem 3
 
 # Solving with Python (3.8.1)
 
