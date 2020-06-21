@@ -1,14 +1,21 @@
 # Project Euler: Problem 3
 
+## Largest Prime Factor:
+# The prime factors of 13195 are 5, 7, 13 and 29.
+# What is the largest prime factor of the number 600851475143 ?
+
+
 # Solving with Python (3.8.1)
 
-# Determine largest prime factor of a 600851475143
-# Answer is 6857
+############################################################################
 
+## Practice Work
 
-#### -------------------------------------------------------------------------
-#### MY ANSWER
-#### For the designated number (becasue it's odd, 2 is not a factor)
+############################################################################
+############################################################################
+
+## Official Solution Used
+# For the designated number (becasue it's odd, 2 is not a factor)
 
 targetNum = 600851475143
 nonPrimeFact = targetNum
@@ -30,9 +37,11 @@ while product < targetNum:
 print("The largest prime factor of %d is %d" % (targetNum, primeNum - 2))
 
 
-#### -------------------------------------------------------------------------
-#### MY ANSWER
-#### To solve for any number > 0
+############################################################################
+
+# MY ANSWER
+# To solve for any number > 0
+
 ##targetNum = 3747
 ##nonPrimeFact = targetNum
 ##primeNum = 3
@@ -66,14 +75,18 @@ print("The largest prime factor of %d is %d" % (targetNum, primeNum - 2))
 ##print("The largest prime factor of %d is %d" % (targetNum, primeNum))
 
 
-#### -------------------------------------------------------------------------
+############################################################################
+############################################################################
+
 #### OPTIMIZED VERSION (with print checks)
+
 #### Shortens the limits of options to try each iteration
 ####     (i.e. 2 * 2 * 2 * 3 * 3 * 5 * 21 * 499 = 3772440
 ####         takes ?? lines to solve instead of ??)
 ####     Every number has at most one prime factor greater than its square root
 ####         (essentially the half-way point of products)
 ####         (if haven't found a factor below, not going to be matching above)
+
 #### Educational version has each section run first iteration of prime
 ####     followed by while loop for multiples
 #### Mine eliminates duplicate run by running initial iteration with others
@@ -139,7 +152,8 @@ print("The largest prime factor of %d is %d" % (targetNum, primeNum - 2))
 ##    print("The largest prime factor of %d is %d" % (targetNum, remaining))
 
 
-#### -------------------------------------------------------------------------
+############################################################################
+
 #### OPTIMZED VERSION (without print checks)
 
 ##import math              # needed for square root function
