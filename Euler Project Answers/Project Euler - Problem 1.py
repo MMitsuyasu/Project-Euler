@@ -1,13 +1,20 @@
 # Project Euler: Problem 1
 
+## Multiples of 3 and 5:
+# If we list all the natural numbers below 10 that are multiples of 3 or 5,
+# we get 3, 5, 6 and 9. The sum of these multiples is 23.
+# Find the sum of all the multiples of 3 or 5 below 1000.
+
+
 # Solving with Python (3.8.1)
 
-
+############################################################################
 ## Practice Work
-# My test work to ensure I understand the results of each action
-# the modulo operator (%) returns the remainder
-# if the remainder is 0, then x is divisible by the number specified
-# by adding x to "total" and returning to "total," "total" becomes the sum of all the divisible numbers in the set
+# My test work to ensure I understand the results of each action:
+# The modulo operator (%) returns the remainder.
+# If the remainder is 0, then x is divisible by the number specified.
+# By adding x and "total" and reassigning the sum to "total,"
+# "total" becomes the sum of all the divisible numbers in the set.
 
 # total = 0
 
@@ -23,8 +30,9 @@
 #           print("total is %d" % total)
 
 
-
-## Solution Used
+############################################################################
+############################################################################
+## Official Solution Used
 # The problem only needs the answer
 # Since I've ensured the logic (above), no need to print each valid number
 
@@ -37,9 +45,11 @@ for x in range(1,1000):
        if x % 5 == 0:
            total = total + x
 
-#print(total)
+print(total)
 
 
+############################################################################
+############################################################################
 
 ## Simpler Solution
 # Didn't need to set the initial value of the set,
@@ -77,7 +87,7 @@ for x in range(1,1000):
 # Problem wants the sum of numbers divisble by 3 and numbers divisible by 5
 # Calculate sum of those divisible by 3 and 5 separately
 # Add the two sums together
-# Numbers divisibly by both (factors of 15) would be calculated twice
+# Numbers divisible by both (factors of 15) would be calculated twice
 #    would be in sum of both sets
 # Calculate the sum of those numbers and subtract once to correct
     
