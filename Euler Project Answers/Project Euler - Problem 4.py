@@ -12,19 +12,38 @@
 
 # Practice Work
 
-def checkPal(value):
-    value = str(value)
-    palLength = len(value) // 2
-    match = 0
-    check = 0
+##def checkPal(value):
+##    value = str(value)
+##    palLength = len(value) // 2
+##    match = 0
+##    check = 0
+##
+##    while match < palLength and value[check] == value[-check - 1]:
+##        match = match + 1
+##        check = check + 1
+##
+##    palStatus = match == palLength
+##    return palStatus
+##
+##
+##
 
-    while match < palLength and value[check] == value[-check - 1]:
-        match = match + 1
-        check = check + 1
+def isPal(value):
+    if str(value) == "".join(reversed(str(value))):
+        return True
+    else:
+        return False
 
-    palStatus = match == palLength
-    return palStatus
 
+x = "Hello"
+y = reversed(x)
+z = "".join(y)
+print(z)
+
+w = 642
+print(isPal(w))
+p = 590095
+print(isPal(p))
 
 ############################################################################
 ############################################################################
