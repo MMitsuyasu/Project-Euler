@@ -9,6 +9,7 @@
 # Solving with Python (3.8.1)
 
 ############################################################################
+
 ## Practice Work
 # My test work to ensure I understand the results of each action:
 # The modulo operator (%) returns the remainder.
@@ -32,6 +33,7 @@
 
 ############################################################################
 ############################################################################
+
 ## Official Solution Used
 # The problem only needs the answer
 # Since I've ensured the logic (above), no need to print each valid number
@@ -67,6 +69,7 @@ print(total)
 #print(total)
 
 
+############################################################################
 
 ## Lighter Solution
 # Provided by Euler Project after solution
