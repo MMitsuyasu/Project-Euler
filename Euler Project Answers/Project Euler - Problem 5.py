@@ -13,6 +13,10 @@
 
 ## Practice Work
 
+# Identify prime numbers <= target
+# Identify clean roots of remaining numbers <= target
+# Multiply all identified factors together
+
 
 ############################################################################
 ############################################################################
