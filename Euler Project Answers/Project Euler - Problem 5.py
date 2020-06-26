@@ -49,6 +49,37 @@ def primeFactors(target):
 print(primeFactors(688500))
 
 
+# Identify clean roots of remaining numbers <= target
+import math
+test = [1, 2, 3, 4, 5, 9, 16, 25, 32]
+test2 = [4, 9]
+target = 10
+
+#for n in test:
+#    if n in test2:
+#        continue
+
+# Identifies roots to check
+checkRoots = []
+for root in range(int(math.sqrt(target)), 1, -1):
+    checkRoots.append(root)
+print(checkRoots)
+
+# Determines if target list has a clean int root
+rootFactors = []
+for n in range(2, target+1):
+##    if n in primeFactors(target):
+##        # Skips numbers already identified as factors (b/c prime)
+##        continue
+    for root in checkRoots:
+        if ((n ** (1/root)) % 1) == 0:
+            rootFactors.append(int(n ** (1/root)))
+            break
+print(rootFactors)
+
+
+# Multiply all identified factors together
+
 
 ############################################################################
 ############################################################################
