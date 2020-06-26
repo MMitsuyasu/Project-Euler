@@ -19,34 +19,31 @@
 
 
 # Identify prime numbers <= target
-def primeFactors(target):
+def isPrime(number):
     import math
-    workingTarget = target
-    primeList = [1]
+    workingNum = number
+    primeNum = True
 
     # Checks for 2 as a factor
-    if workingTarget % 2 == 0:
-        primeList.append(2)
-        while workingTarget % 2 == 0:
-            workingTarget = workingTarget / 2
+    if workingNum % 2 == 0:
+        primeNum = False
+        while workingNum % 2 == 0:
+            workingNum = workingNum / 2
 
-    # Checks for other prime factors
-    maxFactor = math.sqrt(workingTarget)
+    # Checks for other factors
+    maxFactor = math.sqrt(workingNum)
     factor = 3
-
-    while workingTarget > 1 and factor <= maxFactor:
-        if workingTarget % factor == 0:
-            primeList.append(factor)
-            while workingTarget % factor == 0:
-                workingTarget = workingTarget / factor
-            maxFactor = math.sqrt(workingTarget)
+    while primeNum and workingNum > 1 and factor <= maxFactor:
+        if workingNum % factor == 0:
+            primeNum = False
+            while workingNum % factor == 0:
+                workingNum = workingNum / factor
+            maxFactor = math.sqrt(workingNum)
         factor = factor + 2
 
-    primeList.append(int(workingTarget))
+    return primeNum
 
-    return primeList
-
-print(primeFactors(688500))
+print(isPrime(27))
 
 
 # Identify clean roots of remaining numbers <= target
