@@ -86,8 +86,16 @@ def rootFactorsIn(target):
 
 print(rootFactorsIn(10))
 
-# Multiply all identified factors together
 
+# Multiply all identified foundational factors
+def smallestProduct(target):
+    number = 1
+    foundationFactors = primesUpTo(target) + rootFactorsIn(target)
+    for x in foundationFactors:
+        number = number * x
+    return number
+
+print(smallestProduct(10))
 
 ############################################################################
 ############################################################################
