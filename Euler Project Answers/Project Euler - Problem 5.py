@@ -24,8 +24,8 @@ def isPrime(number):
     workingNum = number
     primeNum = True
 
-    # Checks for 2 as a factor
-    if workingNum % 2 == 0:
+    # Checks for 2 as a factor (if number is 2, skips and returns prime)
+    if workingNum > 2 and workingNum % 2 == 0:
         primeNum = False
         while workingNum % 2 == 0:
             workingNum = workingNum / 2
@@ -43,7 +43,22 @@ def isPrime(number):
 
     return primeNum
 
-print(isPrime(27))
+
+def primesUpTo(target):
+    if target <1:
+        primeList = []
+    elif target == 1:
+        primeList = [1]
+    else:
+        primeList = []
+        for num in range(2, target+1):
+            if isPrime(num):
+                primeList.append(num)
+    return primeList
+
+
+print(primesUpTo(10))
+
 
 
 # Identify clean roots of remaining numbers <= target
@@ -64,7 +79,7 @@ print(checkRoots)
 
 # Determines if target list has a clean int root
 rootFactors = []
-for n in range(2, target+1):
+for n in range(4, target+1):
 ##    if n in primeFactors(target):
 ##        # Skips numbers already identified as factors (b/c prime)
 ##        continue
