@@ -19,6 +19,7 @@
 
 
 # Identify prime numbers <= target
+
 def isPrime(number):
     import math
     workingNum = number
@@ -62,33 +63,28 @@ print(primesUpTo(10))
 
 
 # Identify clean roots of remaining numbers <= target
-import math
-test = [1, 2, 3, 4, 5, 9, 16, 25, 32]
-test2 = [4, 9]
-target = 10
+def rootFactorsIn(target):
+    import math
 
-#for n in test:
-#    if n in test2:
-#        continue
+    # Identifies Nth roots to check
+    checkRoots = []
+    for root in range(int(math.sqrt(target)), 1, -1):
+        checkRoots.append(root)
 
-# Identifies roots to check
-checkRoots = []
-for root in range(int(math.sqrt(target)), 1, -1):
-    checkRoots.append(root)
-print(checkRoots)
+    # Identifies numbers in the target list that have a clean Nth roots
+    rootFactors = []
+    for n in range(4, target+1):
+        if n in primesUpTo(target):
+            # Skips prime numbers
+            continue
+        for root in checkRoots:
+            if ((n ** (1/root)) % 1) == 0:
+                rootFactors.append(int(n ** (1/root)))
+                break
 
-# Determines if target list has a clean int root
-rootFactors = []
-for n in range(4, target+1):
-##    if n in primeFactors(target):
-##        # Skips numbers already identified as factors (b/c prime)
-##        continue
-    for root in checkRoots:
-        if ((n ** (1/root)) % 1) == 0:
-            rootFactors.append(int(n ** (1/root)))
-            break
-print(rootFactors)
+    return rootFactors
 
+print(rootFactorsIn(10))
 
 # Multiply all identified factors together
 
