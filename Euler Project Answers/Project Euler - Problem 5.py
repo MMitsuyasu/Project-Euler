@@ -18,6 +18,12 @@
 # Multiply all identified factors together
 
 
+############################################################################
+############################################################################
+
+# Official Solution Used
+
+
 # Identify prime numbers
 def isPrime(number):
     import math
@@ -90,13 +96,9 @@ def smallestProduct(target):
     return number
 
 
+x = 20
+print(f"The smallest number evenly divisible by all integers 1 to {x} is {smallestProduct(x)}.")
 
-
-
-############################################################################
-############################################################################
-
-# Official Solution Used
 
 
 ############################################################################
