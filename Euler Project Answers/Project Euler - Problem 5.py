@@ -18,33 +18,33 @@
 # Multiply all identified factors together
 
 
-# Identify prime numbers <= target
-
+# Identify prime numbers
 def isPrime(number):
     import math
     workingNum = number
-    primeNum = True
+    isPrimeNum = True
 
     # Checks for 2 as a factor (if number is 2, skips and returns prime)
     if workingNum > 2 and workingNum % 2 == 0:
-        primeNum = False
+        isPrimeNum = False
         while workingNum % 2 == 0:
             workingNum = workingNum / 2
 
     # Checks for other factors
     maxFactor = math.sqrt(workingNum)
     factor = 3
-    while primeNum and workingNum > 1 and factor <= maxFactor:
+    while isPrimeNum and workingNum > 1 and factor <= maxFactor:
         if workingNum % factor == 0:
-            primeNum = False
+            isPrimeNum = False
             while workingNum % factor == 0:
                 workingNum = workingNum / factor
             maxFactor = math.sqrt(workingNum)
         factor = factor + 2
 
-    return primeNum
+    return isPrimeNum
 
 
+# Collect prime numbers up to target
 def primesUpTo(target):
     if target <1:
         primeList = []
@@ -58,11 +58,7 @@ def primesUpTo(target):
     return primeList
 
 
-print(primesUpTo(10))
-
-
-
-# Identify clean roots of remaining numbers <= target
+# Collect roots from numbers up to target that have Nth roots
 def rootFactorsIn(target):
     import math
 
@@ -71,9 +67,9 @@ def rootFactorsIn(target):
     for root in range(int(math.sqrt(target)), 1, -1):
         checkRoots.append(root)
 
-    # Identifies numbers in the target list that have a clean Nth roots
+    # Identifies and collects clean Nth roots
     rootFactors = []
-    for n in range(4, target+1):
+    for n in range(4, target+1):    # Start at 4 since 2 & 3 are prime
         if n in primesUpTo(target):
             # Skips prime numbers
             continue
@@ -84,8 +80,6 @@ def rootFactorsIn(target):
 
     return rootFactors
 
-print(rootFactorsIn(10))
-
 
 # Multiply all identified foundational factors
 def smallestProduct(target):
@@ -95,7 +89,9 @@ def smallestProduct(target):
         number = number * x
     return number
 
-print(smallestProduct(10))
+
+
+
 
 ############################################################################
 ############################################################################
