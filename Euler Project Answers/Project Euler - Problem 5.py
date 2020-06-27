@@ -56,9 +56,11 @@ def primesUpTo(target):
         primeList = []
     elif target == 1:
         primeList = [1]
+    elif target == 2:
+        primeList = [2]
     else:
-        primeList = []
-        for num in range(2, target+1):
+        primeList = [2]
+        for num in range(3, target+1, 2):
             if isPrime(num):
                 primeList.append(num)
     return primeList
@@ -71,6 +73,9 @@ def rootFactorsIn(target):
     # Identifies Nth roots to check
     checkRoots = []
     for root in range(int(math.sqrt(target)), 1, -1):
+        # Max root is sqrt(target) to limit number of roots to check
+            # r such that 2 ** r <= target will be <= sqrt(target)
+            # 2 is the smallest prime, so for any higher prime, r will be <=
         checkRoots.append(root)
 
     # Identifies and collects clean Nth roots
@@ -97,7 +102,8 @@ def smallestProduct(target):
 
 
 x = 20
-print(f"The smallest number evenly divisible by all integers 1 to {x} is {smallestProduct(x)}.")
+print(f"The smallest number evenly divisible by all integers 1 to {x}" \
+    f" is {smallestProduct(x)}.")
 
 
 
@@ -106,3 +112,31 @@ print(f"The smallest number evenly divisible by all integers 1 to {x} is {smalle
 
 ## Optimized Solution Notes
 
+# See official Project Euler "overview" explanation:
+#     https://projecteuler.net/overview=005
+
+# Essentially the same idea though used logarithms instead of Nth roots
+#     (I'd forgotten what logarithms are and how to use them)
+#     (Logarithms are the inverse functions to exponentialism)
+#     Logarithm review: https://en.wikipedia.org/wiki/Logarithm
+# Could rewrite program as follows:
+#    Replace "rootFactorsIn()" and "smallestProduct()" with:
+#    (My adaptation of Project Euler recommendation)
+
+
+# def smallestProductIntsTo(target):
+#     import math
+#     targetSqrt = math.sqrt(target)
+#     primeFactors = primesUpTo(target)
+#     number = 1
+
+#     for x in primeFactors:
+#         if x <= targetSqrt:
+#             x = x ** math.floor(math.log(target) / math.log(x))
+#         number = number * x
+
+#     return number
+
+# x = 20
+# print(f"The smallest number evenly divisible by all integers 1 to {x}" \
+#     f" is {smallestProductIntsTo(x)}.")
